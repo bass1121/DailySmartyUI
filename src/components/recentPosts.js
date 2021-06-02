@@ -9,6 +9,21 @@ class RecentPosts extends Component {
     componentDidMount() {
         this.props.fetchRecentPosts();
     }
+
+    renderPosts = function() {
+        const posts = this.props.recentPosts.map((post, index) => {
+            
+            if(index < 3) {
+                return (
+                    <li key={index} >
+                        {post.title}
+                    </li>
+                )
+            }    
+        })
+        return posts
+    }
+
     render() {
         return (
             <div className="recent-posts">
@@ -17,10 +32,7 @@ class RecentPosts extends Component {
                         Recent Posts
                     </div>
                     <ul className="recent-posts-posts">
-                        <li>recent post 0</li>
-                        <li>recent post 1</li>
-                        <li>recent post 2</li>
-                        <li>recent post 3</li>
+                        {this.renderPosts()}
                     </ul>
                 </div>
                 
@@ -28,4 +40,11 @@ class RecentPosts extends Component {
         );
     }
 }
-export default connect(null, actions)(RecentPosts);
+
+function mapStateToProps(state) {
+    return {
+        recentPosts: state.posts.recentPosts
+    }
+}
+
+export default connect(mapStateToProps, actions)(RecentPosts);
