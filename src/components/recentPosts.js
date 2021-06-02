@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
+
+import Post from "./posts";
 
 class RecentPosts extends Component {
 
@@ -15,9 +16,7 @@ class RecentPosts extends Component {
             
             if(index < 3) {
                 return (
-                    <li key={index} >
-                        {post.title}
-                    </li>
+                    <Post {...post} key={index} />
                 )
             }    
         })
