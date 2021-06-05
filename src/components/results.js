@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Logo from './logo';
+import SearchBar from "./searchBar";
 
 export default class Results extends Component {
+
+    handleSearchBarSubmit(query) {
+        console.log(query, "query results");
+    }
+
     render() {
         return (
-            <div>
-                <h1>Results</h1>
-                <Logo />
+            <div>         
+                <Logo size={55} />
+                <SearchBar onSubmit={(query) => this.handleSearchBarSubmit(query)} />
             </div>
         );
     }
