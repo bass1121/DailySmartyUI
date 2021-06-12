@@ -6,12 +6,9 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.home {
-    height: 100vh;
-    width: 66vw;
+.app-wrapper {
     display: grid;
-    align-content: space-around;
-    justify-items: stretch;
+    justify-content: center;
 }
 
 .logo-main, 
@@ -20,11 +17,13 @@ body {
     justify-items: center;
 }
 
-
 $color-gray-one: #666666;
 $color-gray-two:  #b3b3b3;
 $color-blue-one:  #0079ff;
 
-
+@import "./mixins.scss";
+@import "./home.scss";
 @import "./searchBar.scss";
+@import "./post.scss";
 @import "./recentPosts.scss";
+@import "./results.scss";
